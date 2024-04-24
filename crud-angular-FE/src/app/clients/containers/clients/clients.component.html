@@ -1,0 +1,19 @@
+<mat-card>
+  <mat-toolbar color="primary">Clientes Cadastrados</mat-toolbar>
+
+  <div class="colum-flex mat-elevation-z8">
+
+  <app-clients-list *ngIf="clients$ | async as clients; else loading" [clients]="clients"
+  (add)="onAdd()"
+  (edit)="onEdit($event)"
+  (delete)="onDelete($event)"
+  ></app-clients-list>
+
+<ng-template #loading>
+  <div class="loading-spinner">
+  <mat-spinner></mat-spinner>
+  </div>
+</ng-template>
+</div>
+</mat-card>
+
